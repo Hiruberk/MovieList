@@ -7,8 +7,8 @@ namespace MovieListLab10
 {
     class Movie
     {
-        public string Title { get; set; }
-        public string Category { get; set; }
+        public string Title { get; set; }//Declaring title property 
+        public string Category { get; set; }//Declaring category or genre property
 
 
 
@@ -16,27 +16,7 @@ namespace MovieListLab10
         {
             this.Title = Title;
             this.Category = Category;
-
+            //constructing the object, so it may be used in the list in the main method
         }
-
-
-
-        public void PrintMovie()
-        {
-            Console.WriteLine("----------------Movie List-------------");
-            Console.WriteLine($"Title: {Title}    Genre: {Category}");
-            Console.WriteLine("---------------------------------------");
-        }
-
-        //List<string> GrabMovieList(List<string>)
-        //{
-        //    string movieList = new List<>
-        //}
-
-        //public List<string> FindCategory(string genre)
-        //{
-            
-        //}
-
     }
 }
