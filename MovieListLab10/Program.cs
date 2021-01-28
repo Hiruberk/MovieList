@@ -60,10 +60,11 @@ namespace MovieListLab10
 
                 for (int i = 0; i < genres.Count; i++)
                 {
-                    Console.WriteLine($"{i}) {genres[i]}");
+                    Console.WriteLine($"{i+1}) {genres[i]}");
                 }
 
-                int option = int.Parse(Console.ReadLine());
+                int option = VoidCheck(Console.ReadLine()) - 1;
+
                 string searchGenre = string.Empty;
                 searchGenre = genres[option];
                 List<Movie> returnList = new List<Movie>();
@@ -77,11 +78,12 @@ namespace MovieListLab10
                     }
                 }
 
-                //returnList.Sort();
+                IEnumerable<Movie> sortedReturnList = returnList.OrderBy(o => o.Title);
 
-                foreach (Movie m in returnList)
+                foreach (Movie m in sortedReturnList)
                 {
-                    Console.WriteLine($"Title: {m.Title}\tGenre: {m.Category}");
+                    Console.WriteLine($"Title: {m.Title}\nGenre: {m.Category}");
+                    Console.WriteLine("*******************************");
                 }
 
 
@@ -92,5 +94,24 @@ namespace MovieListLab10
                 }
             }
         }
+
+        public static int VoidCheck(string input)
+        {
+            int integer;
+            while (true)    
+            {
+                if (Int32.TryParse(input, out integer))
+                {
+                    return integer;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter the corresponding number for your category");
+                    input = Console.ReadLine();
+                }
+            }
+        }
+
+
     }
 }
