@@ -28,10 +28,15 @@ namespace MovieListLab10
             Console.WriteLine("---------------------------------------");
         }
 
-       //public List<movies> FindCategory(string Category)
-       // {
+        //List<string> GrabMovieList(List<string>)
+        //{
+        //    string movieList = new List<>
+        //}
 
-       // } 
+        //public List<string> FindCategory(string genre)
+        //{
+            
+        //}
 
     }
 }

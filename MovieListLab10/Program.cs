@@ -42,18 +42,48 @@ namespace MovieListLab10
             movies.Add(new Movie("Interstellar", "Sci-Fi"));
             movies.Add(new Movie("Back to the Future", "Sci-Fi"));
 
-            
+            List<string> genres = new List<string>();
+
+            foreach  (Movie c in movies)
+            {
+                if (!genres.Contains(c.Category))
+                {
+                    genres.Add(c.Category);
+                }
+            }
+
+                        
             while (true)
             {
-                Console.WriteLine("What category are your interested in? (Animated, Drama, Horror, Sci-Fi");
+                Console.WriteLine("What category are your interested in?");
+                Console.WriteLine("Please enter the corresponding number for your category");
 
+                for (int i = 0; i < genres.Count; i++)
+                {
+                    Console.WriteLine($"{i}) {genres[i]}");
+                }
 
+                int option = int.Parse(Console.ReadLine());
+                string searchGenre = string.Empty;
+                searchGenre = genres[option];
+                List<Movie> returnList = new List<Movie>();
 
-                //for (int i = 0; i < movies.Count; i++)
-                //{
-                //    Movie cinema = movies[i];
-                //    Console.WriteLine($"Index: {i} | Title: {cinema.Title} | Genre: {cinema.Category}");
-                //}
+                Console.WriteLine($"Here are your {searchGenre} movies");
+                foreach (Movie m in movies)
+                {
+                    if (m.Category == searchGenre)
+                    {
+                        returnList.Add(m);
+                    }
+                }
+
+                //returnList.Sort();
+
+                foreach (Movie m in returnList)
+                {
+                    Console.WriteLine($"Title: {m.Title}\tGenre: {m.Category}");
+                }
+
 
                 Console.WriteLine("\nWould you like to look at another genre? (y/n)");
                 if(Console.ReadLine().ToLower() == "n")
