@@ -63,10 +63,10 @@ namespace MovieListLab10
                     Console.WriteLine($"{i+1}) {genres[i]}");//Prints out the list of generes with an associated number for them to select.
                 }                       // The +1 is so the user doesn't wonder why 0 was an option on a list.
 
-                int option = ValidCheck(Console.ReadLine(), 0, (genres.Count-1)) - 1;//insures that the user gives a number to the corresponding genre and it is in the range.
+                int option = ValidCheck(Console.ReadLine(), 0, (genres.Count));//insures that the user gives a number to the corresponding genre and it is in the range.
 
                 string searchGenre = string.Empty;
-                searchGenre = genres[option];//captures the genre they picked.
+                searchGenre = genres[option-1];//captures the genre they picked.
                 List<Movie> returnList = new List<Movie>();//Declares the returnlist that we will put the specific movies with the matching user selected genre
 
                 Console.WriteLine($"Here are your {searchGenre} movies");
